@@ -1,1 +1,7 @@
 # mixtape-demo
+
+---
+
+```
+$ gulp watch
+```

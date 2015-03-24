@@ -1,3 +1,6 @@
+var http = require("http");
+
+
 $(function(){
     var i;
 
@@ -24,7 +27,6 @@ $(function(){
             $generationSelect
                 .val(0)
                 .attr("disabled", "disabled");
-            $requestButton.attr("disabled", "disabled");
         } else {
             $generationSelect
                 .html("")
@@ -41,6 +43,8 @@ $(function(){
                     .html(i + "'s"));
             }
         }
+
+        $requestButton.attr("disabled", "disabled");
     });
 
     $generationSelect.change(function(){
