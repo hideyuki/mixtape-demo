@@ -20,6 +20,20 @@ $(function(){
             .html(i));
     }
 
+    http.get(
+        {
+            "host": "developer.echonest.com",
+            "path": "/api/v4/artist/blogs?api_key=LBPMNIGPBVNVLFOMD&id=ARH6W4X1187B99274F&format=json&results=1&start=0",
+            "user-agent": "node.js",
+            "Access-Control-Allow-Origin": "developer.echonest.com",
+            "Access-Control-Allow-Credentials": false,
+            "port": 80
+        },
+        function(res){
+            console.log(res);
+        }
+    );
+
     $ageSelect.change(function(){
         var age = parseInt($ageSelect.val());
 
