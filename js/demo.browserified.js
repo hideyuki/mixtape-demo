@@ -22,16 +22,30 @@ $(function(){
             .html(i));
     }
 
-    http.get(
+    var data = "";
+    var req = http.get(
         {
-            host: "developer.echonest.com",
-            path : "/api/v4/artist/blogs?api_key=LBPMNIGPBVNVLFOMD&id=ARH6W4X1187B99274F&format=json&results=1&start=0",
-            
+            "host": "api.github.com",
+            "path": "/users/bucaran/repos",
+            "scheme": "https",
+            "withCredentials": false
         },
         function(res){
-        console.log(res);
+            res.on("data", function (buf) {
+                data += buf;
+            });
+
+            res.on("end", function () {
+                console.log(JSON.parse(data));
+            });
         }
     );
+
+
+    /*$.getJSON("https://api.github.com/users/bucaran/repos")
+        .then(function(json){
+           console.log(json);
+        });*/
 
     $ageSelect.change(function(){
         var age = parseInt($ageSelect.val());
@@ -131,7 +145,7 @@ function createSongElement(){
 }
 
 
-}).call(this,require("1YiZ5S"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_e12c8ec0.js","/")
+}).call(this,require("1YiZ5S"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_6f6e44fe.js","/")
 },{"1YiZ5S":11,"buffer":2,"http":6}],2:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /*!

@@ -20,19 +20,30 @@ $(function(){
             .html(i));
     }
 
-    http.get(
+    var data = "";
+    var req = http.get(
         {
-            "host": "developer.echonest.com",
-            "path": "/api/v4/artist/blogs?api_key=LBPMNIGPBVNVLFOMD&id=ARH6W4X1187B99274F&format=json&results=1&start=0",
-            "user-agent": "node.js",
-            "Access-Control-Allow-Origin": "developer.echonest.com",
-            "Access-Control-Allow-Credentials": false,
-            "port": 80
+            "host": "api.github.com",
+            "path": "/users/bucaran/repos",
+            "scheme": "https",
+            "withCredentials": false
         },
         function(res){
-            console.log(res);
+            res.on("data", function (buf) {
+                data += buf;
+            });
+
+            res.on("end", function () {
+                console.log(JSON.parse(data));
+            });
         }
     );
+
+
+    /*$.getJSON("https://api.github.com/users/bucaran/repos")
+        .then(function(json){
+           console.log(json);
+        });*/
 
     $ageSelect.change(function(){
         var age = parseInt($ageSelect.val());
